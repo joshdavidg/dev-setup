@@ -43,9 +43,10 @@ starship_install() {
     echo "inside starship install"
 
     # Check for starship 
-    if [ ! -f /usr/local/bin/starship ]; then
+    if [ ! -f ~/.local/bin/starship ]; then
         echo "Starship installing...."
-        sudo curl -sS https://starship.rs/install.sh | sh -s -- -y
+        mkdir -p ~/.local/bin
+        sudo curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
     fi
 
     # Check for nerdfont
@@ -59,7 +60,3 @@ starship_install() {
 create_symlinks
 starship_install
 lazygit_install
-
-if [ -f ~/.zshrc ]; then
-    source ~/.zshrc
-fi
