@@ -37,5 +37,13 @@ lazygit_install() {
     fi
 }
 
+starship_install() {
+    # Check for starship 
+    if [ ! -f /usr/local/bin/starship ]; then
+        curl -sS https://starship.rs/install.sh | sh
+    fi
+}
+
 create_symlinks
+starship_install
 lazygit_install
