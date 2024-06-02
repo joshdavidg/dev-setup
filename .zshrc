@@ -260,4 +260,8 @@ alias bat="batcat"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$(starship init zsh)"
+if [ -f ~/.local/bin/starship ]; then
+    eval "$(~/.local/bin/starship init zsh)"
+else 
+    eval "$(starship init zsh)"
+fi
