@@ -28,8 +28,10 @@ create_symlinks() {
 }
 
 lazygit_install() {
+
     # Install lazygit
     if [ ! -f /usr/local/bin/lazygit ]; then
+        echo "lazygit installing ..."
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
         curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
         tar xf lazygit.tar.gz lazygit
@@ -38,9 +40,12 @@ lazygit_install() {
 }
 
 starship_install() {
+    echo "inside starship install"
+
     # Check for starship 
     if [ ! -f /usr/local/bin/starship ]; then
-        curl -sS https://starship.rs/install.sh | sh -s --y
+        echo "Starship installing...."
+        curl -sS https://starship.rs/install.sh | sh -s -- -y
     fi
 
     # Check for nerdfont
