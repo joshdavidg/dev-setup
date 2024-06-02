@@ -19,7 +19,7 @@ create_symlinks() {
 
     if [ ! -d ~/.config/nvim ]; then
         mkdir -p ~/.config
-        ln -s $script_dir/nvim ~/.config/
+        ln -s $script_dir/nvim/.config/nvim ~/.config/
     fi
 
     if [ ! -f ~/.config/starship.toml ]; then
@@ -45,7 +45,7 @@ starship_install() {
     # Check for starship 
     if [ ! -f /usr/local/bin/starship ]; then
         echo "Starship installing...."
-        curl -sS https://starship.rs/install.sh | sh -s -- -y
+        sudo curl -sS https://starship.rs/install.sh | sh -s -- -y
     fi
 
     # Check for nerdfont
@@ -59,3 +59,7 @@ starship_install() {
 create_symlinks
 starship_install
 lazygit_install
+
+if [ -f ~/.zshrc ]; then
+    source ~/.zshrc
+fi
