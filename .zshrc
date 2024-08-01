@@ -113,8 +113,8 @@ configure_prompt() {
 # The following block is surrounded by two delimiters.
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
-  PROMPT_ALTERNATIVE=twoline
-#  NEWLINE_BEFORE_PROMPT=yes
+PROMPT_ALTERNATIVE=twoline
+#NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
