@@ -1,5 +1,5 @@
 return {
-    "nvimtools/none-ls.nvim",
+	"nvimtools/none-ls.nvim",
     dependencies = {
         "nvimtools/none-ls-extras.nvim",
     },
@@ -14,7 +14,6 @@ return {
                 null_ls.builtins.formatting.stylua,
                 --Javascript
                 null_ls.builtins.formatting.prettier,
-                null_ls.builtins.diagnostics.eslint_d,
                 --Go
                 null_ls.builtins.formatting.goimports,
                 null_ls.builtins.formatting.gofumpt,
@@ -27,7 +26,6 @@ return {
                 }),
             },
         })
-
         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
     end,
 }
