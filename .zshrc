@@ -2,7 +2,7 @@
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
 setopt autocd              # change directory just by typing its name
-#setopt correct            # auto correct mistakes
+setopt correct            # auto correct mistakes
 setopt interactivecomments # allow comments in interactive mode
 setopt magicequalsubst     # enable filename expansion for arguments of the form ‘anything=expression’
 setopt nonomatch           # hide error message if there is no match for the pattern
@@ -114,7 +114,7 @@ configure_prompt() {
 # These delimiters must not be modified. Thanks.
 # START KALI CONFIG VARIABLES
 PROMPT_ALTERNATIVE=twoline
-NEWLINE_BEFORE_PROMPT=yes
+#NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
@@ -200,13 +200,13 @@ precmd() {
     print -Pnr -- "$TERM_TITLE"
 
     # Print a new line before the prompt, but only if it is not the first line
-    if [ "$NEWLINE_BEFORE_PROMPT" = yes ]; then
-        if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
-            _NEW_LINE_BEFORE_PROMPT=1
-        else
-            print ""
-        fi
-    fi
+    #if [ "$NEWLINE_BEFORE_PROMPT" = yes ]; then
+    #    if [ -z "$_NEW_LINE_BEFORE_PROMPT" ]; then
+    #        _NEW_LINE_BEFORE_PROMPT=1
+    #    else
+    #        print ""
+    #    fi
+    #fi
 }
 
 # enable color support of ls, less and man, and also add handy aliases
@@ -256,12 +256,12 @@ alias zshconfig="nvim ~/.zshrc"
 alias zshconfupd="source ~/.zshrc"
 alias bat="batcat"
 
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f ~/.local/bin/starship ]; then
-    eval "$(~/.local/bin/starship init zsh)"
-else 
-    eval "$(starship init zsh)"
-fi
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/kalimah/.local/bin
+go env -w GOBIN=/home/kalimah/.local/bin
+
+eval "$(starship init zsh)"
