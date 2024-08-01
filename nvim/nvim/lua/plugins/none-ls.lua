@@ -9,12 +9,11 @@ return {
             sources = {
                 require("none-ls.diagnostics.eslint_d"),
                 require("none-ls.formatting.eslint_d"),
-                require("none-ls.code_actions.eslint_d"), 
+                require("none-ls.code_actions.eslint_d"),
                 --Lua
                 null_ls.builtins.formatting.stylua,
                 --Javascript
                 null_ls.builtins.formatting.prettier,
-                null_ls.builtins.diagnostics.eslint_d,
                 --Go
                 null_ls.builtins.formatting.goimports,
                 null_ls.builtins.formatting.gofumpt,
